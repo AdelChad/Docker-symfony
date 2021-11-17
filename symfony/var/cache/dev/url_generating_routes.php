@@ -24,6 +24,11 @@ return [
     'owner_show' => [['id'], ['_controller' => 'App\\Controller\\OwnerController::show'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/owner']], [], []],
     'owner_edit' => [['id'], ['_controller' => 'App\\Controller\\OwnerController::edit'], [], [['text', '/edit'], ['variable', '/', '[^/]++', 'id', true], ['text', '/owner']], [], []],
     'owner_delete' => [['id'], ['_controller' => 'App\\Controller\\OwnerController::delete'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/owner']], [], []],
+    'transaction_index' => [[], ['_controller' => 'App\\Controller\\TransactionController::index'], [], [['text', '/transaction/']], [], []],
+    'transaction_new' => [[], ['_controller' => 'App\\Controller\\TransactionController::new'], [], [['text', '/transaction/new']], [], []],
+    'transaction_show' => [['id'], ['_controller' => 'App\\Controller\\TransactionController::show'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/transaction']], [], []],
+    'transaction_edit' => [['id'], ['_controller' => 'App\\Controller\\TransactionController::edit'], [], [['text', '/edit'], ['variable', '/', '[^/]++', 'id', true], ['text', '/transaction']], [], []],
+    'transaction_delete' => [['id'], ['_controller' => 'App\\Controller\\TransactionController::delete'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/transaction']], [], []],
     '_preview_error' => [['code', '_format'], ['_controller' => 'error_controller::preview', '_format' => 'html'], ['code' => '\\d+'], [['variable', '.', '[^/]++', '_format', true], ['variable', '/', '\\d+', 'code', true], ['text', '/_error']], [], []],
     'app_lucky_number' => [['number'], ['_controller' => 'App\\Controller\\LuckyController::number'], ['number' => '\\d+'], [['variable', '/', '\\d+', 'number', true], ['text', '/lucky/number']], [], []],
 ];

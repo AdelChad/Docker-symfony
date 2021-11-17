@@ -23,6 +23,14 @@
                 <th>Label</th>
                 <td>{{ transaction.label }}</td>
             </tr>
+            <tr>
+                <th>Receiver</th>
+                <td>{{ transaction.creditAccount.owner.firstName }}</td>
+            </tr>
+            <tr>
+                <th>Debitor</th>
+                <td>{{ transaction.debitAccount.owner.firstName }}</td>
+            </tr>
         </tbody>
     </table>
 

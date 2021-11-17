@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\TransactionRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=TransactionRepository::class)
@@ -21,9 +22,14 @@ class Transaction
      * @ORM\Column(type="datetime")
      */
     private $date;
-
+    
     /**
      * @ORM\Column(type="integer")
+     * @Assert\Expression(
+     * "this.getDebitAccount().getBalance()+this.getDebitAccount().getMinimumBalance() - value > 0",
+     * message="Le solde du debiteur n'est pas suffisant"
+     * )
+     * @Assert\Positive()
      */
     private $sum;
 

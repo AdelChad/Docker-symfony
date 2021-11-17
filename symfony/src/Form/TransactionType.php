@@ -3,9 +3,11 @@
 namespace App\Form;
 
 use App\Entity\Transaction;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use App\Entity\Account;
 
 class TransactionType extends AbstractType
 {
@@ -15,8 +17,14 @@ class TransactionType extends AbstractType
             ->add('date')
             ->add('sum')
             ->add('label')
-            ->add('debitAccount')
-            ->add('creditAccount')
+            ->add('debitAccount', EntityType::class, [
+                'class' => Account::class,
+                'choice_label' => 'iban'
+            ])
+            ->add('creditAccount', EntityType::class, [
+                'class' => Account::class,
+                'choice_label' => 'iban'
+            ])
         ;
     }
 

@@ -28,7 +28,7 @@ class Account
      * @ORM\Column(type="integer")
      */
     private $balance;
-
+    
     /**
      * @ORM\Column(type="string", length=255)
      */
@@ -49,6 +49,11 @@ class Account
      * @ORM\OneToMany(targetEntity=Transaction::class, mappedBy="creditAccount", orphanRemoval=true)
      */
     private $creditTransactions;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $minimumBalance;
 
     public function __construct()
     {
@@ -165,6 +170,18 @@ class Account
                 $creditTransaction->setCreditAccount(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getMinimumBalance(): ?int
+    {
+        return $this->minimumBalance;
+    }
+
+    public function setMinimumBalance(int $minimumBalance): self
+    {
+        $this->minimumBalance = $minimumBalance;
 
         return $this;
     }

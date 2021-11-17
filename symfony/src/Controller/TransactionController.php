@@ -29,6 +29,15 @@ class TransactionController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
+            $debiteur = $transaction->getDebitAccount();
+            $crediter = $transaction->getCreditAccount();
+            if($debiteur->getBalance()+$debiteur->getMinimumBalance()>$transaction->getSum())
+            {
+                $debiteur->setBalance($debiteur->getBalance()-$transaction->getSum());
+                $crediter->setBalance($crediter->getBalance()+$transaction->getSum());
+            }
+
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($transaction);
             $entityManager->flush();

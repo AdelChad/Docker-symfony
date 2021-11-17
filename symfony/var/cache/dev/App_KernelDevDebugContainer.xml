@@ -352,10 +352,20 @@
         <argument type="service" id=".service_locator.W9y3dzm.App\Controller\OwnerController"/>
       </call>
     </service>
+    <service id="App\Controller\TransactionController" class="App\Controller\TransactionController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.W9y3dzm.App\Controller\TransactionController"/>
+      </call>
+    </service>
     <service id="App\Form\AccountType" class="App\Form\AccountType" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
     </service>
     <service id="App\Form\OwnerType" class="App\Form\OwnerType" autowire="true" autoconfigure="true">
+      <tag name="form.type"/>
+    </service>
+    <service id="App\Form\TransactionType" class="App\Form\TransactionType" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
     </service>
     <service id="App\Repository\AccountRepository" class="App\Repository\AccountRepository" autowire="true" autoconfigure="true">
@@ -949,6 +959,7 @@
       <argument type="collection">
         <argument>App\Form\AccountType</argument>
         <argument>App\Form\OwnerType</argument>
+        <argument>App\Form\TransactionType</argument>
         <argument>Symfony\Component\Form\Extension\Core\Type\FormType</argument>
         <argument>Symfony\Component\Form\Extension\Core\Type\ChoiceType</argument>
         <argument>Symfony\Component\Form\Extension\Core\Type\FileType</argument>
@@ -1354,7 +1365,7 @@
       <argument type="service" id="form.registry"/>
     </service>
     <service id="form.extension" class="Symfony\Component\Form\Extension\DependencyInjection\DependencyInjectionExtension">
-      <argument type="service" id=".service_locator.N4TjFJU"/>
+      <argument type="service" id=".service_locator.xv7cd8B"/>
       <argument type="collection">
         <argument key="Symfony\Component\Form\Extension\Core\Type\FormType" type="iterator">
           <argument type="service" id="form.type_extension.form.transformation_failure_handling"/>
@@ -5547,10 +5558,15 @@
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\OwnerController" class="App\Controller\OwnerController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\OwnerController" class="App\Controller\OwnerController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\OwnerController" class="App\Controller\OwnerController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\TransactionController" class="App\Controller\TransactionController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\TransactionController" class="App\Controller\TransactionController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\TransactionController" class="App\Controller\TransactionController" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\AccountType" class="App\Form\AccountType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\AccountType" class="App\Form\AccountType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\OwnerType" class="App\Form\OwnerType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\OwnerType" class="App\Form\OwnerType" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\TransactionType" class="App\Form\TransactionType" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Form\TransactionType" class="App\Form\TransactionType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\AccountRepository" class="App\Repository\AccountRepository" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\AccountRepository" class="App\Repository\AccountRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\OwnerRepository" class="App\Repository\OwnerRepository" autowire="true" abstract="true"/>
@@ -5896,7 +5912,19 @@
         <argument key="owner" type="service_closure" id=".errored..service_locator.9LAmx1C.App\Entity\Owner"/>
       </argument>
     </service>
-    <service id=".service_locator.Sj9cQXU" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.obm__7_" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="transactionRepository" type="service_closure" id="App\Repository\TransactionRepository"/>
+      </argument>
+    </service>
+    <service id=".service_locator.BDCyWLf" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="transaction" type="service_closure" id=".errored..service_locator.BDCyWLf.App\Entity\Transaction"/>
+      </argument>
+    </service>
+    <service id=".service_locator.hMUyJQM" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Controller\AccountController::delete" type="service_closure" id=".service_locator.h4z8DQI"/>
@@ -5907,6 +5935,10 @@
         <argument key="App\Controller\OwnerController::edit" type="service_closure" id=".service_locator.9LAmx1C"/>
         <argument key="App\Controller\OwnerController::index" type="service_closure" id=".service_locator.zpQjwkF"/>
         <argument key="App\Controller\OwnerController::show" type="service_closure" id=".service_locator.9LAmx1C"/>
+        <argument key="App\Controller\TransactionController::delete" type="service_closure" id=".service_locator.BDCyWLf"/>
+        <argument key="App\Controller\TransactionController::edit" type="service_closure" id=".service_locator.BDCyWLf"/>
+        <argument key="App\Controller\TransactionController::index" type="service_closure" id=".service_locator.obm__7_"/>
+        <argument key="App\Controller\TransactionController::show" type="service_closure" id=".service_locator.BDCyWLf"/>
         <argument key="App\Kernel::loadRoutes" type="service_closure" id=".service_locator.KfbR3DY"/>
         <argument key="App\Kernel::registerContainerConfiguration" type="service_closure" id=".service_locator.KfbR3DY"/>
         <argument key="App\Kernel::terminate" type="service_closure" id=".service_locator.KfwZsne"/>
@@ -5921,6 +5953,10 @@
         <argument key="App\Controller\OwnerController:edit" type="service_closure" id=".service_locator.9LAmx1C"/>
         <argument key="App\Controller\OwnerController:index" type="service_closure" id=".service_locator.zpQjwkF"/>
         <argument key="App\Controller\OwnerController:show" type="service_closure" id=".service_locator.9LAmx1C"/>
+        <argument key="App\Controller\TransactionController:delete" type="service_closure" id=".service_locator.BDCyWLf"/>
+        <argument key="App\Controller\TransactionController:edit" type="service_closure" id=".service_locator.BDCyWLf"/>
+        <argument key="App\Controller\TransactionController:index" type="service_closure" id=".service_locator.obm__7_"/>
+        <argument key="App\Controller\TransactionController:show" type="service_closure" id=".service_locator.BDCyWLf"/>
         <argument key="kernel:loadRoutes" type="service_closure" id=".service_locator.KfbR3DY"/>
         <argument key="kernel:registerContainerConfiguration" type="service_closure" id=".service_locator.KfbR3DY"/>
         <argument key="kernel:terminate" type="service_closure" id=".service_locator.KfwZsne"/>
@@ -5985,11 +6021,12 @@
       <argument type="service" id="debug.argument_resolver.not_tagged_controller.inner"/>
       <argument type="service" id="debug.stopwatch"/>
     </service>
-    <service id=".service_locator.N4TjFJU" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.xv7cd8B" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Form\AccountType" type="service_closure" id="App\Form\AccountType"/>
         <argument key="App\Form\OwnerType" type="service_closure" id="App\Form\OwnerType"/>
+        <argument key="App\Form\TransactionType" type="service_closure" id="App\Form\TransactionType"/>
         <argument key="Symfony\Bridge\Doctrine\Form\Type\EntityType" type="service_closure" id="form.type.entity"/>
         <argument key="Symfony\Component\Form\Extension\Core\Type\ChoiceType" type="service_closure" id="form.type.choice"/>
         <argument key="Symfony\Component\Form\Extension\Core\Type\ColorType" type="service_closure" id="form.type.color"/>
@@ -6274,6 +6311,12 @@
       <argument type="service" id="service_container"/>
       <factory service=".service_locator.W9y3dzm" method="withContext"/>
     </service>
+    <service id=".service_locator.W9y3dzm.App\Controller\TransactionController" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\TransactionController"/>
+      <argument>App\Controller\TransactionController</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.W9y3dzm" method="withContext"/>
+    </service>
     <service id=".service_locator.J4b.DPX" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
@@ -6441,12 +6484,12 @@
       <argument type="service" id="security.token_storage"/>
     </service>
     <service id="debug.argument_resolver.service.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver">
-      <argument type="service" id=".service_locator.Sj9cQXU"/>
+      <argument type="service" id=".service_locator.hMUyJQM"/>
     </service>
     <service id="debug.argument_resolver.default.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver"/>
     <service id="debug.argument_resolver.variadic.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\VariadicValueResolver"/>
     <service id="debug.argument_resolver.not_tagged_controller.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver">
-      <argument type="service" id=".service_locator.Sj9cQXU"/>
+      <argument type="service" id=".service_locator.hMUyJQM"/>
     </service>
     <service id=".debug.http_client.inner" class="Symfony\Contracts\HttpClient\HttpClientInterface">
       <argument type="collection"/>
@@ -6466,6 +6509,7 @@
     <service id=".errored..service_locator.KfbR3DY.Symfony\Component\Config\Loader\LoaderInterface" class="Symfony\Component\Config\Loader\LoaderInterface"/>
     <service id=".errored..service_locator.h4z8DQI.App\Entity\Account" class="App\Entity\Account"/>
     <service id=".errored..service_locator.9LAmx1C.App\Entity\Owner" class="App\Entity\Owner"/>
+    <service id=".errored..service_locator.BDCyWLf.App\Entity\Transaction" class="App\Entity\Transaction"/>
     <service id=".console.command.about.lazy" class="Symfony\Component\Console\Command\LazyCommand">
       <argument>about</argument>
       <argument type="collection"/>
@@ -7301,7 +7345,7 @@
     <service id="Symfony\Component\Security\Core\User\UserCheckerInterface" alias="security.user_checker"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.0GV1BZZ" public="true"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.Sj9cQXU"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.hMUyJQM"/>
     <service id="session" alias=".session.do-not-use" public="true">
       <deprecated package="symfony/framework-bundle" version="5.3">The "%alias_id%" service and "SessionInterface" alias are deprecated, use "$requestStack-&gt;getSession()" instead.</deprecated>
     </service>
@@ -7346,6 +7390,8 @@
     <service id=".service_locator.3pkYNBg" alias=".service_locator.h4z8DQI"/>
     <service id=".service_locator.4jDKFrS" alias=".service_locator.zpQjwkF"/>
     <service id=".service_locator.oDXxYDq" alias=".service_locator.9LAmx1C"/>
+    <service id=".service_locator.2Y6IMx0" alias=".service_locator.obm__7_"/>
+    <service id=".service_locator.0QC_j30" alias=".service_locator.BDCyWLf"/>
     <service id=".service_locator.NK827YO" alias=".service_locator.W9y3dzm"/>
   </services>
 </container>
