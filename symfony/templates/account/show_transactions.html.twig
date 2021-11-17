@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} {% endblock %}
+
+{% block body %}
+
+    <table>
+    {% for transactions in account.debitTransactions|merge(account.creditTransactions)|sort((a,b) => a.date > b.date) %}
+         <tr>
+            <td>{{ transactions.label }}</td>
+            <td>{{ transactions.date|date('d-m-Y H:i:s') }}</td>
+            {% if transactions.sum < 0 %}
+            <td>
+                {{ transactions.sum }}
+            </td>{% endif %}
+            {% if transactions.sum >= 0 %}
+            <td>
+                {{ transactions.sum }}
+            </td>{% endif %}
+    {% endfor %}
+    </table>
+{% endblock %}

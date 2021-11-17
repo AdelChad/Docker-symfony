@@ -79,4 +79,16 @@ class AccountController extends AbstractController
 
         return $this->redirectToRoute('account_index', [], Response::HTTP_SEE_OTHER);
     }
+
+    #[Route('/{id}/transactions', name: 'account_transactions', methods: ['GET'])]
+    public function showTransactions(Account $account)
+    {
+        array_map(function($element) {
+            $element->setSum(-$element->getSum());
+            return $element;
+        }, $account->getDebitTransactions()->toArray());
+        return $this->render('account/show_transactions.html.twig', [
+            'account' => $account,
+        ]);
+    }
 }

@@ -14,13 +14,6 @@ use Symfony\Component\Routing\Annotation\Route;
 #[Route('/transaction')]
 class TransactionController extends AbstractController
 {
-    #[Route('/', name: 'transaction_index', methods: ['GET'])]
-    public function index(TransactionRepository $transactionRepository): Response
-    {
-        return $this->render('transaction/index.html.twig', [
-            'transactions' => $transactionRepository->findAll(),
-        ]);
-    }
 
     #[Route('/new/owner/{id}', name: 'transaction_new_owner', methods: ['GET','POST'])]
     public function new(Request $request, Owner $owner): Response
@@ -45,7 +38,7 @@ class TransactionController extends AbstractController
             $entityManager->persist($transaction);
             $entityManager->flush();
 
-            return $this->redirectToRoute('transaction_index', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('owner_show', ['id' => $owner->getId()], Response::HTTP_SEE_OTHER);
         }
 
         return $this->renderForm('transaction/new.html.twig', [

@@ -31,7 +31,7 @@
                 <th>Debit transactions</th>
                     <td>
                     {% for debitTransaction in account.debitTransactions %}
-                        <li>{{ debitTransaction.label }} : -{{ debitTransaction.sum }}</li>
+                        <li>{{ debitTransaction.label }} </a>: -{{ debitTransaction.sum }}</li>
                     
                     {% endfor %}
             --------------------------------------
@@ -48,6 +48,8 @@
             </tr>
         </tbody>
     </table>
+
+    <a href="{{ path('account_transactions',{'id': account.id}) }}">Show transactions</a>
 
     <a href="{{ path('account_index') }}">back to list</a>
 

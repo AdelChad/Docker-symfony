@@ -150,10 +150,6 @@ class __TwigTemplate_de77d78df188c16beb0eecb97820f809b420fef440e9be3f8ee70b21d55
         echo "        </tbody>
     </table>
 
-    <a href=\"";
-        // line 38
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("transaction_new");
-        echo "\">Create new</a>
 ";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
@@ -175,7 +171,7 @@ class __TwigTemplate_de77d78df188c16beb0eecb97820f809b420fef440e9be3f8ee70b21d55
 
     public function getDebugInfo()
     {
-        return array (  155 => 38,  150 => 35,  141 => 31,  132 => 27,  128 => 26,  123 => 24,  119 => 23,  115 => 22,  111 => 21,  108 => 20,  103 => 19,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  150 => 35,  141 => 31,  132 => 27,  128 => 26,  123 => 24,  119 => 23,  115 => 22,  111 => 21,  108 => 20,  103 => 19,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -217,7 +213,6 @@ class __TwigTemplate_de77d78df188c16beb0eecb97820f809b420fef440e9be3f8ee70b21d55
         </tbody>
     </table>
 
-    <a href=\"{{ path('transaction_new') }}\">Create new</a>
 {% endblock %}
 ", "transaction/index.html.twig", "/var/www/symfony/templates/transaction/index.html.twig");
     }

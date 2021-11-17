@@ -15,9 +15,9 @@ return [
         '/_profiler/open' => [[['_route' => '_profiler_open_file', '_controller' => 'web_profiler.controller.profiler::openAction'], null, null, null, false, false, null]],
         '/account' => [[['_route' => 'account_index', '_controller' => 'App\\Controller\\AccountController::index'], null, ['GET' => 0], null, true, false, null]],
         '/account/new' => [[['_route' => 'account_new', '_controller' => 'App\\Controller\\AccountController::new'], null, ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        '/' => [[['_route' => 'index', '_controller' => 'App\\Controller\\IndexController::index'], null, null, null, false, false, null]],
         '/owner' => [[['_route' => 'owner_index', '_controller' => 'App\\Controller\\OwnerController::index'], null, ['GET' => 0], null, true, false, null]],
         '/owner/new' => [[['_route' => 'owner_new', '_controller' => 'App\\Controller\\OwnerController::new'], null, ['GET' => 0, 'POST' => 1], null, false, false, null]],
-        '/transaction' => [[['_route' => 'transaction_index', '_controller' => 'App\\Controller\\TransactionController::index'], null, ['GET' => 0], null, true, false, null]],
     ],
     [ // $regexpList
         0 => '{^(?'
@@ -38,23 +38,26 @@ return [
                 .')'
                 .'|/account/([^/]++)(?'
                     .'|(*:188)'
-                    .'|/edit(*:201)'
-                    .'|(*:209)'
+                    .'|/(?'
+                        .'|edit(*:204)'
+                        .'|transactions(*:224)'
+                    .')'
+                    .'|(*:233)'
                 .')'
                 .'|/owner/([^/]++)(?'
-                    .'|(*:236)'
-                    .'|/edit(*:249)'
-                    .'|(*:257)'
+                    .'|(*:260)'
+                    .'|/edit(*:273)'
+                    .'|(*:281)'
                 .')'
                 .'|/transaction/(?'
-                    .'|new/owner/([^/]++)(*:300)'
+                    .'|new/owner/([^/]++)(*:324)'
                     .'|([^/]++)(?'
-                        .'|(*:319)'
-                        .'|/edit(*:332)'
-                        .'|(*:340)'
+                        .'|(*:343)'
+                        .'|/edit(*:356)'
+                        .'|(*:364)'
                     .')'
                 .')'
-                .'|/lucky/number/(\\d+)(*:369)'
+                .'|/lucky/number/(\\d+)(*:393)'
             .')/?$}sDu',
     ],
     [ // $dynamicRoutes
@@ -66,16 +69,17 @@ return [
         124 => [[['_route' => '_profiler', '_controller' => 'web_profiler.controller.profiler::panelAction'], ['token'], null, null, false, true, null]],
         159 => [[['_route' => '_preview_error', '_controller' => 'error_controller::preview', '_format' => 'html'], ['code', '_format'], null, null, false, true, null]],
         188 => [[['_route' => 'account_show', '_controller' => 'App\\Controller\\AccountController::show'], ['id'], ['GET' => 0], null, false, true, null]],
-        201 => [[['_route' => 'account_edit', '_controller' => 'App\\Controller\\AccountController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
-        209 => [[['_route' => 'account_delete', '_controller' => 'App\\Controller\\AccountController::delete'], ['id'], ['POST' => 0], null, false, true, null]],
-        236 => [[['_route' => 'owner_show', '_controller' => 'App\\Controller\\OwnerController::show'], ['id'], ['GET' => 0], null, false, true, null]],
-        249 => [[['_route' => 'owner_edit', '_controller' => 'App\\Controller\\OwnerController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
-        257 => [[['_route' => 'owner_delete', '_controller' => 'App\\Controller\\OwnerController::delete'], ['id'], ['POST' => 0], null, false, true, null]],
-        300 => [[['_route' => 'transaction_new_owner', '_controller' => 'App\\Controller\\TransactionController::new'], ['id'], ['GET' => 0, 'POST' => 1], null, false, true, null]],
-        319 => [[['_route' => 'transaction_show', '_controller' => 'App\\Controller\\TransactionController::show'], ['id'], ['GET' => 0], null, false, true, null]],
-        332 => [[['_route' => 'transaction_edit', '_controller' => 'App\\Controller\\TransactionController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
-        340 => [[['_route' => 'transaction_delete', '_controller' => 'App\\Controller\\TransactionController::delete'], ['id'], ['POST' => 0], null, false, true, null]],
-        369 => [
+        204 => [[['_route' => 'account_edit', '_controller' => 'App\\Controller\\AccountController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        224 => [[['_route' => 'account_transactions', '_controller' => 'App\\Controller\\AccountController::showTransactions'], ['id'], ['GET' => 0], null, false, false, null]],
+        233 => [[['_route' => 'account_delete', '_controller' => 'App\\Controller\\AccountController::delete'], ['id'], ['POST' => 0], null, false, true, null]],
+        260 => [[['_route' => 'owner_show', '_controller' => 'App\\Controller\\OwnerController::show'], ['id'], ['GET' => 0], null, false, true, null]],
+        273 => [[['_route' => 'owner_edit', '_controller' => 'App\\Controller\\OwnerController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        281 => [[['_route' => 'owner_delete', '_controller' => 'App\\Controller\\OwnerController::delete'], ['id'], ['POST' => 0], null, false, true, null]],
+        324 => [[['_route' => 'transaction_new_owner', '_controller' => 'App\\Controller\\TransactionController::new'], ['id'], ['GET' => 0, 'POST' => 1], null, false, true, null]],
+        343 => [[['_route' => 'transaction_show', '_controller' => 'App\\Controller\\TransactionController::show'], ['id'], ['GET' => 0], null, false, true, null]],
+        356 => [[['_route' => 'transaction_edit', '_controller' => 'App\\Controller\\TransactionController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        364 => [[['_route' => 'transaction_delete', '_controller' => 'App\\Controller\\TransactionController::delete'], ['id'], ['POST' => 0], null, false, true, null]],
+        393 => [
             [['_route' => 'app_lucky_number', '_controller' => 'App\\Controller\\LuckyController::number'], ['number'], null, null, false, true, null],
             [null, null, null, null, false, false, 0],
         ],

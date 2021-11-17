@@ -64,10 +64,20 @@ class __TwigTemplate_3159dfa3e4f9e027c97bdf782e4593c180d4836dd56c6ba07d317df347b
         // line 15
         echo "    </head>
     <body>
-        ";
-        // line 17
-        $this->displayBlock('body', $context, $blocks);
+    <ul>
+        <li><a href=\"";
         // line 18
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("account_index");
+        echo "\">Account</a></li>
+        <li><a href=\"";
+        // line 19
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("owner_index");
+        echo "\">Owner</a></li>
+    </ul>
+        ";
+        // line 21
+        $this->displayBlock('body', $context, $blocks);
+        // line 22
         echo "    </body>
 </html>";
         
@@ -141,7 +151,7 @@ class __TwigTemplate_3159dfa3e4f9e027c97bdf782e4593c180d4836dd56c6ba07d317df347b
 
     }
 
-    // line 17
+    // line 21
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -164,9 +174,14 @@ class __TwigTemplate_3159dfa3e4f9e027c97bdf782e4593c180d4836dd56c6ba07d317df347b
         return "base.html.twig";
     }
 
+    public function isTraitable()
+    {
+        return false;
+    }
+
     public function getDebugInfo()
     {
-        return array (  145 => 17,  135 => 14,  133 => 13,  123 => 12,  113 => 10,  111 => 9,  101 => 8,  82 => 5,  71 => 18,  69 => 17,  65 => 15,  63 => 12,  60 => 11,  57 => 8,  53 => 5,  47 => 1,);
+        return array (  155 => 21,  145 => 14,  143 => 13,  133 => 12,  123 => 10,  121 => 9,  111 => 8,  92 => 5,  81 => 22,  79 => 21,  74 => 19,  70 => 18,  65 => 15,  63 => 12,  60 => 11,  57 => 8,  53 => 5,  47 => 1,);
     }
 
     public function getSourceContext()
@@ -187,6 +202,10 @@ class __TwigTemplate_3159dfa3e4f9e027c97bdf782e4593c180d4836dd56c6ba07d317df347b
         {% endblock %}
     </head>
     <body>
+    <ul>
+        <li><a href=\"{{ path('account_index') }}\">Account</a></li>
+        <li><a href=\"{{ path('owner_index') }}\">Owner</a></li>
+    </ul>
         {% block body %}{% endblock %}
     </body>
 </html>", "base.html.twig", "/var/www/symfony/templates/base.html.twig");

@@ -135,7 +135,7 @@ class __TwigTemplate_c3464ff1d097543b3888243bc999262baf08c7aadd8bafaf1daaf5c5f1d
             // line 34
             echo "                        <li>";
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["debitTransaction"], "label", [], "any", false, false, false, 34), "html", null, true);
-            echo " : -";
+            echo " </a>: -";
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["debitTransaction"], "sum", [], "any", false, false, false, 34), "html", null, true);
             echo "</li>
                     
@@ -176,16 +176,21 @@ class __TwigTemplate_c3464ff1d097543b3888243bc999262baf08c7aadd8bafaf1daaf5c5f1d
 
     <a href=\"";
         // line 52
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("account_transactions", ["id" => twig_get_attribute($this->env, $this->source, (isset($context["account"]) || array_key_exists("account", $context) ? $context["account"] : (function () { throw new RuntimeError('Variable "account" does not exist.', 52, $this->source); })()), "id", [], "any", false, false, false, 52)]), "html", null, true);
+        echo "\">Show transactions</a>
+
+    <a href=\"";
+        // line 54
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("account_index");
         echo "\">back to list</a>
 
     <a href=\"";
-        // line 54
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("account_edit", ["id" => twig_get_attribute($this->env, $this->source, (isset($context["account"]) || array_key_exists("account", $context) ? $context["account"] : (function () { throw new RuntimeError('Variable "account" does not exist.', 54, $this->source); })()), "id", [], "any", false, false, false, 54)]), "html", null, true);
+        // line 56
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("account_edit", ["id" => twig_get_attribute($this->env, $this->source, (isset($context["account"]) || array_key_exists("account", $context) ? $context["account"] : (function () { throw new RuntimeError('Variable "account" does not exist.', 56, $this->source); })()), "id", [], "any", false, false, false, 56)]), "html", null, true);
         echo "\">edit</a>
 
     ";
-        // line 56
+        // line 58
         echo twig_include($this->env, $context, "account/_delete_form.html.twig");
         echo "
 ";
@@ -209,7 +214,7 @@ class __TwigTemplate_c3464ff1d097543b3888243bc999262baf08c7aadd8bafaf1daaf5c5f1d
 
     public function getDebugInfo()
     {
-        return array (  189 => 56,  184 => 54,  179 => 52,  172 => 47,  160 => 44,  156 => 43,  148 => 37,  136 => 34,  132 => 33,  124 => 28,  117 => 24,  110 => 20,  103 => 16,  96 => 12,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  194 => 58,  189 => 56,  184 => 54,  179 => 52,  172 => 47,  160 => 44,  156 => 43,  148 => 37,  136 => 34,  132 => 33,  124 => 28,  117 => 24,  110 => 20,  103 => 16,  96 => 12,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -247,7 +252,7 @@ class __TwigTemplate_c3464ff1d097543b3888243bc999262baf08c7aadd8bafaf1daaf5c5f1d
                 <th>Debit transactions</th>
                     <td>
                     {% for debitTransaction in account.debitTransactions %}
-                        <li>{{ debitTransaction.label }} : -{{ debitTransaction.sum }}</li>
+                        <li>{{ debitTransaction.label }} </a>: -{{ debitTransaction.sum }}</li>
                     
                     {% endfor %}
             --------------------------------------
@@ -264,6 +269,8 @@ class __TwigTemplate_c3464ff1d097543b3888243bc999262baf08c7aadd8bafaf1daaf5c5f1d
             </tr>
         </tbody>
     </table>
+
+    <a href=\"{{ path('account_transactions',{'id': account.id}) }}\">Show transactions</a>
 
     <a href=\"{{ path('account_index') }}\">back to list</a>
 

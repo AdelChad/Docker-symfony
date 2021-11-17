@@ -66,10 +66,10 @@ class Account extends \App\Entity\Account implements \Doctrine\ORM\Proxy\Proxy
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return ['__isInitialized__', '' . "\0" . 'App\\Entity\\Account' . "\0" . 'id', '' . "\0" . 'App\\Entity\\Account' . "\0" . 'iban', '' . "\0" . 'App\\Entity\\Account' . "\0" . 'balance', '' . "\0" . 'App\\Entity\\Account' . "\0" . 'type', '' . "\0" . 'App\\Entity\\Account' . "\0" . 'owner', '' . "\0" . 'App\\Entity\\Account' . "\0" . 'debitTransactions', '' . "\0" . 'App\\Entity\\Account' . "\0" . 'creditTransactions', '' . "\0" . 'App\\Entity\\Account' . "\0" . 'minimumBalance'];
+            return ['__isInitialized__', '' . "\0" . 'App\\Entity\\Account' . "\0" . 'id', '' . "\0" . 'App\\Entity\\Account' . "\0" . 'iban', '' . "\0" . 'App\\Entity\\Account' . "\0" . 'balance', '' . "\0" . 'App\\Entity\\Account' . "\0" . 'type', '' . "\0" . 'App\\Entity\\Account' . "\0" . 'owner', '' . "\0" . 'App\\Entity\\Account' . "\0" . 'debitTransactions', '' . "\0" . 'App\\Entity\\Account' . "\0" . 'creditTransactions', '' . "\0" . 'App\\Entity\\Account' . "\0" . 'minimumBalance', '' . "\0" . 'App\\Entity\\Account' . "\0" . 'senders'];
         }
 
-        return ['__isInitialized__', '' . "\0" . 'App\\Entity\\Account' . "\0" . 'id', '' . "\0" . 'App\\Entity\\Account' . "\0" . 'iban', '' . "\0" . 'App\\Entity\\Account' . "\0" . 'balance', '' . "\0" . 'App\\Entity\\Account' . "\0" . 'type', '' . "\0" . 'App\\Entity\\Account' . "\0" . 'owner', '' . "\0" . 'App\\Entity\\Account' . "\0" . 'debitTransactions', '' . "\0" . 'App\\Entity\\Account' . "\0" . 'creditTransactions', '' . "\0" . 'App\\Entity\\Account' . "\0" . 'minimumBalance'];
+        return ['__isInitialized__', '' . "\0" . 'App\\Entity\\Account' . "\0" . 'id', '' . "\0" . 'App\\Entity\\Account' . "\0" . 'iban', '' . "\0" . 'App\\Entity\\Account' . "\0" . 'balance', '' . "\0" . 'App\\Entity\\Account' . "\0" . 'type', '' . "\0" . 'App\\Entity\\Account' . "\0" . 'owner', '' . "\0" . 'App\\Entity\\Account' . "\0" . 'debitTransactions', '' . "\0" . 'App\\Entity\\Account' . "\0" . 'creditTransactions', '' . "\0" . 'App\\Entity\\Account' . "\0" . 'minimumBalance', '' . "\0" . 'App\\Entity\\Account' . "\0" . 'senders'];
     }
 
     /**
@@ -365,6 +365,39 @@ class Account extends \App\Entity\Account implements \Doctrine\ORM\Proxy\Proxy
         $this->__initializer__ && $this->__initializer__->__invoke($this, 'setMinimumBalance', [$minimumBalance]);
 
         return parent::setMinimumBalance($minimumBalance);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getSenders(): \Doctrine\Common\Collections\Collection
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getSenders', []);
+
+        return parent::getSenders();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function addSender(\App\Entity\Owner $sender): \App\Entity\Account
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'addSender', [$sender]);
+
+        return parent::addSender($sender);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function removeSender(\App\Entity\Owner $sender): \App\Entity\Account
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'removeSender', [$sender]);
+
+        return parent::removeSender($sender);
     }
 
 }

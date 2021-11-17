@@ -55,7 +55,7 @@ class Owner
     private $debitAccount;
 
     /**
-     * @ORM\ManyToMany(targetEntity=Account::class, mappedBy="senders")
+     * @ORM\ManyToMany(targetEntity=Account::class, inversedBy="senders")
      */
     private $beneficiaries;
 
