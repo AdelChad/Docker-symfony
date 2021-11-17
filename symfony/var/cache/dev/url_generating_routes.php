@@ -25,7 +25,7 @@ return [
     'owner_edit' => [['id'], ['_controller' => 'App\\Controller\\OwnerController::edit'], [], [['text', '/edit'], ['variable', '/', '[^/]++', 'id', true], ['text', '/owner']], [], []],
     'owner_delete' => [['id'], ['_controller' => 'App\\Controller\\OwnerController::delete'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/owner']], [], []],
     'transaction_index' => [[], ['_controller' => 'App\\Controller\\TransactionController::index'], [], [['text', '/transaction/']], [], []],
-    'transaction_new' => [[], ['_controller' => 'App\\Controller\\TransactionController::new'], [], [['text', '/transaction/new']], [], []],
+    'transaction_new_owner' => [['id'], ['_controller' => 'App\\Controller\\TransactionController::new'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/transaction/new/owner']], [], []],
     'transaction_show' => [['id'], ['_controller' => 'App\\Controller\\TransactionController::show'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/transaction']], [], []],
     'transaction_edit' => [['id'], ['_controller' => 'App\\Controller\\TransactionController::edit'], [], [['text', '/edit'], ['variable', '/', '[^/]++', 'id', true], ['text', '/transaction']], [], []],
     'transaction_delete' => [['id'], ['_controller' => 'App\\Controller\\TransactionController::delete'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/transaction']], [], []],

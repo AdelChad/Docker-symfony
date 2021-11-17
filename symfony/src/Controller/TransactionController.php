@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Owner;
 use App\Entity\Transaction;
 use App\Form\TransactionType;
 use App\Repository\TransactionRepository;
@@ -21,24 +22,26 @@ class TransactionController extends AbstractController
         ]);
     }
 
-    #[Route('/new', name: 'transaction_new', methods: ['GET','POST'])]
-    public function new(Request $request): Response
+    #[Route('/new/owner/{id}', name: 'transaction_new_owner', methods: ['GET','POST'])]
+    public function new(Request $request, Owner $owner): Response
     {
         $transaction = new Transaction();
-        $form = $this->createForm(TransactionType::class, $transaction);
+        $form = $this->createForm(TransactionType::class, $transaction, [
+            'owner' => $owner
+        ]);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-
-            $debiteur = $transaction->getDebitAccount();
-            $crediter = $transaction->getCreditAccount();
-            if($debiteur->getBalance()+$debiteur->getMinimumBalance()>$transaction->getSum())
-            {
-                $debiteur->setBalance($debiteur->getBalance()-$transaction->getSum());
-                $crediter->setBalance($crediter->getBalance()+$transaction->getSum());
-            }
-
             $entityManager = $this->getDoctrine()->getManager();
+
+            // debit account debitAccount: debitAccount->balance - transaction->amount
+            $debitAccount = $transaction->getDebitAccount();
+            $debitAccount->setBalance($debitAccount->getBalance() - $transaction->getSum());
+
+            //credit account creditAccount: creditAccount->balance + transaction->amount
+            $creditAccount = $transaction->getCreditAccount();
+            $creditAccount->setBalance($creditAccount->getBalance() + $transaction->getSum());
+
             $entityManager->persist($transaction);
             $entityManager->flush();
 

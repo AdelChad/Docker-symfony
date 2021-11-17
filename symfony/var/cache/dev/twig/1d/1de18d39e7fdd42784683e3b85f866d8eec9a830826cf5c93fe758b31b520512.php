@@ -135,7 +135,7 @@ class __TwigTemplate_c3464ff1d097543b3888243bc999262baf08c7aadd8bafaf1daaf5c5f1d
             // line 34
             echo "                        <li>";
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["debitTransaction"], "label", [], "any", false, false, false, 34), "html", null, true);
-            echo " : ";
+            echo " : -";
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["debitTransaction"], "sum", [], "any", false, false, false, 34), "html", null, true);
             echo "</li>
                     
@@ -247,7 +247,7 @@ class __TwigTemplate_c3464ff1d097543b3888243bc999262baf08c7aadd8bafaf1daaf5c5f1d
                 <th>Debit transactions</th>
                     <td>
                     {% for debitTransaction in account.debitTransactions %}
-                        <li>{{ debitTransaction.label }} : {{ debitTransaction.sum }}</li>
+                        <li>{{ debitTransaction.label }} : -{{ debitTransaction.sum }}</li>
                     
                     {% endfor %}
             --------------------------------------

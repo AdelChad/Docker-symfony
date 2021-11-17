@@ -67,7 +67,7 @@ class OwnerController extends AbstractController
             'form' => $form,
         ]);
     }
-
+    
     #[Route('/{id}', name: 'owner_delete', methods: ['POST'])]
     public function delete(Request $request, Owner $owner): Response
     {

@@ -54,10 +54,16 @@ class Owner
      */
     private $debitAccount;
 
+    /**
+     * @ORM\ManyToMany(targetEntity=Account::class, mappedBy="senders")
+     */
+    private $beneficiaries;
+
     public function __construct()
     {
         $this->accounts = new ArrayCollection();
         $this->debitAccount = new ArrayCollection();
+        $this->beneficiaries = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -161,5 +167,29 @@ class Owner
     public function getDebitAccount(): Collection
     {
         return $this->debitAccount;
+    }
+
+    /**
+     * @return Collection|Account[]
+     */
+    public function getBeneficiaries(): Collection
+    {
+        return $this->beneficiaries;
+    }
+
+    public function addBeneficiary(Account $beneficiary): self
+    {
+        if (!$this->beneficiaries->contains($beneficiary)) {
+            $this->beneficiaries[] = $beneficiary;
+        }
+
+        return $this;
+    }
+
+    public function removeBeneficiary(Account $beneficiary): self
+    {
+        $this->beneficiaries->removeElement($beneficiary);
+
+        return $this;
     }
 }

@@ -31,7 +31,7 @@
                 <th>Debit transactions</th>
                     <td>
                     {% for debitTransaction in account.debitTransactions %}
-                        <li>{{ debitTransaction.label }} : {{ debitTransaction.sum }}</li>
+                        <li>{{ debitTransaction.label }} : -{{ debitTransaction.sum }}</li>
                     
                     {% endfor %}
             --------------------------------------

@@ -5924,7 +5924,7 @@
         <argument key="transaction" type="service_closure" id=".errored..service_locator.BDCyWLf.App\Entity\Transaction"/>
       </argument>
     </service>
-    <service id=".service_locator.hMUyJQM" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.HLE.hWu" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Controller\AccountController::delete" type="service_closure" id=".service_locator.h4z8DQI"/>
@@ -5938,6 +5938,7 @@
         <argument key="App\Controller\TransactionController::delete" type="service_closure" id=".service_locator.BDCyWLf"/>
         <argument key="App\Controller\TransactionController::edit" type="service_closure" id=".service_locator.BDCyWLf"/>
         <argument key="App\Controller\TransactionController::index" type="service_closure" id=".service_locator.obm__7_"/>
+        <argument key="App\Controller\TransactionController::new" type="service_closure" id=".service_locator.9LAmx1C"/>
         <argument key="App\Controller\TransactionController::show" type="service_closure" id=".service_locator.BDCyWLf"/>
         <argument key="App\Kernel::loadRoutes" type="service_closure" id=".service_locator.KfbR3DY"/>
         <argument key="App\Kernel::registerContainerConfiguration" type="service_closure" id=".service_locator.KfbR3DY"/>
@@ -5956,6 +5957,7 @@
         <argument key="App\Controller\TransactionController:delete" type="service_closure" id=".service_locator.BDCyWLf"/>
         <argument key="App\Controller\TransactionController:edit" type="service_closure" id=".service_locator.BDCyWLf"/>
         <argument key="App\Controller\TransactionController:index" type="service_closure" id=".service_locator.obm__7_"/>
+        <argument key="App\Controller\TransactionController:new" type="service_closure" id=".service_locator.9LAmx1C"/>
         <argument key="App\Controller\TransactionController:show" type="service_closure" id=".service_locator.BDCyWLf"/>
         <argument key="kernel:loadRoutes" type="service_closure" id=".service_locator.KfbR3DY"/>
         <argument key="kernel:registerContainerConfiguration" type="service_closure" id=".service_locator.KfbR3DY"/>
@@ -6484,12 +6486,12 @@
       <argument type="service" id="security.token_storage"/>
     </service>
     <service id="debug.argument_resolver.service.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver">
-      <argument type="service" id=".service_locator.hMUyJQM"/>
+      <argument type="service" id=".service_locator.HLE.hWu"/>
     </service>
     <service id="debug.argument_resolver.default.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver"/>
     <service id="debug.argument_resolver.variadic.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\VariadicValueResolver"/>
     <service id="debug.argument_resolver.not_tagged_controller.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver">
-      <argument type="service" id=".service_locator.hMUyJQM"/>
+      <argument type="service" id=".service_locator.HLE.hWu"/>
     </service>
     <service id=".debug.http_client.inner" class="Symfony\Contracts\HttpClient\HttpClientInterface">
       <argument type="collection"/>
@@ -7345,7 +7347,7 @@
     <service id="Symfony\Component\Security\Core\User\UserCheckerInterface" alias="security.user_checker"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.0GV1BZZ" public="true"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.hMUyJQM"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.HLE.hWu"/>
     <service id="session" alias=".session.do-not-use" public="true">
       <deprecated package="symfony/framework-bundle" version="5.3">The "%alias_id%" service and "SessionInterface" alias are deprecated, use "$requestStack-&gt;getSession()" instead.</deprecated>
     </service>

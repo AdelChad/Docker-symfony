@@ -55,10 +55,18 @@ class Account
      */
     private $minimumBalance;
 
+    /**
+     * @ORM\ManyToMany(targetEntity=Owner::class, inversedBy="beneficiaries")
+     * @ORM\JoinTable(name="owner_account")
+     */
+    private $senders;
+
     public function __construct()
     {
         $this->debitTransactions = new ArrayCollection();
         $this->creditTransactions = new ArrayCollection();
+        $this->senders = new ArrayCollection();
+    
     }
 
     public function getId(): ?int
@@ -182,6 +190,30 @@ class Account
     public function setMinimumBalance(int $minimumBalance): self
     {
         $this->minimumBalance = $minimumBalance;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Account[]
+     */
+    public function getSenders(): Collection
+    {
+        return $this->senders;
+    }
+
+    public function addSender(Owner $sender): self
+    {
+        if (!$this->senders->contains($sender)) {
+            $this->senders[] = $sender;
+        }
+
+        return $this;
+    }
+
+    public function removeSender(Owner $sender): self
+    {
+        $this->senders->removeElement($sender);
 
         return $this;
     }

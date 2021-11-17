@@ -2,6 +2,7 @@
 
 namespace App\Repository;
 
+use App\Entity\Owner;
 use App\Entity\Account;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
@@ -17,6 +18,14 @@ class AccountRepository extends ServiceEntityRepository
     public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, Account::class);
+    }
+
+    public function findAccountsFromDifferentOwner(Owner $owner)
+    {
+        return $this->createQueryBuilder('a')
+        ->where('a.owner != :owner')
+        ->setParameter(':owner', $owner);
+        ;
     }
 
     // /**

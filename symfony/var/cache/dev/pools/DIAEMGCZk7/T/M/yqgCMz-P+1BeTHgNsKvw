@@ -1,0 +1,141 @@
+<?php //this.getDebitAccount%2528%2529.getBalance%2528%2529%252Bthis.getDebitAccount%2528%2529.getMinimumBalance%2528%2529%2520-%2520value%2520%253E%25200%252F%252Fthis%257Cvalue
+
+return [PHP_INT_MAX, static function () { return \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
+    $o = [
+        clone (($p = &\Symfony\Component\VarExporter\Internal\Registry::$prototypes)['Symfony\\Component\\ExpressionLanguage\\ParsedExpression'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Symfony\\Component\\ExpressionLanguage\\ParsedExpression')),
+        clone ($p['Symfony\\Component\\ExpressionLanguage\\Node\\BinaryNode'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Symfony\\Component\\ExpressionLanguage\\Node\\BinaryNode')),
+        clone $p['Symfony\\Component\\ExpressionLanguage\\Node\\BinaryNode'],
+        clone $p['Symfony\\Component\\ExpressionLanguage\\Node\\BinaryNode'],
+        clone ($p['Symfony\\Component\\ExpressionLanguage\\Node\\GetAttrNode'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Symfony\\Component\\ExpressionLanguage\\Node\\GetAttrNode')),
+        clone $p['Symfony\\Component\\ExpressionLanguage\\Node\\GetAttrNode'],
+        clone ($p['Symfony\\Component\\ExpressionLanguage\\Node\\NameNode'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Symfony\\Component\\ExpressionLanguage\\Node\\NameNode')),
+        clone ($p['Symfony\\Component\\ExpressionLanguage\\Node\\ConstantNode'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Symfony\\Component\\ExpressionLanguage\\Node\\ConstantNode')),
+        clone ($p['Symfony\\Component\\ExpressionLanguage\\Node\\ArgumentsNode'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Symfony\\Component\\ExpressionLanguage\\Node\\ArgumentsNode')),
+        clone $p['Symfony\\Component\\ExpressionLanguage\\Node\\ConstantNode'],
+        clone $p['Symfony\\Component\\ExpressionLanguage\\Node\\ArgumentsNode'],
+        clone $p['Symfony\\Component\\ExpressionLanguage\\Node\\GetAttrNode'],
+        clone $p['Symfony\\Component\\ExpressionLanguage\\Node\\GetAttrNode'],
+        clone $p['Symfony\\Component\\ExpressionLanguage\\Node\\NameNode'],
+        clone $p['Symfony\\Component\\ExpressionLanguage\\Node\\ConstantNode'],
+        clone $p['Symfony\\Component\\ExpressionLanguage\\Node\\ArgumentsNode'],
+        clone $p['Symfony\\Component\\ExpressionLanguage\\Node\\ConstantNode'],
+        clone $p['Symfony\\Component\\ExpressionLanguage\\Node\\ArgumentsNode'],
+        clone $p['Symfony\\Component\\ExpressionLanguage\\Node\\NameNode'],
+        clone $p['Symfony\\Component\\ExpressionLanguage\\Node\\ConstantNode'],
+    ],
+    null,
+    [
+        'Symfony\\Component\\ExpressionLanguage\\ParsedExpression' => [
+            'nodes' => [
+                $o[1],
+            ],
+        ],
+        'Symfony\\Component\\ExpressionLanguage\\Expression' => [
+            'expression' => [
+                'this.getDebitAccount().getBalance()+this.getDebitAccount().getMinimumBalance() - value > 0',
+            ],
+        ],
+        'stdClass' => [
+            'nodes' => [
+                1 => [
+                    'left' => $o[2],
+                    'right' => $o[19],
+                ],
+                [
+                    'left' => $o[3],
+                    'right' => $o[18],
+                ],
+                [
+                    'left' => $o[4],
+                    'right' => $o[11],
+                ],
+                [
+                    'node' => $o[5],
+                    'attribute' => $o[9],
+                    'arguments' => $o[10],
+                ],
+                [
+                    'node' => $o[6],
+                    'attribute' => $o[7],
+                    'arguments' => $o[8],
+                ],
+                11 => [
+                    'node' => $o[12],
+                    'attribute' => $o[16],
+                    'arguments' => $o[17],
+                ],
+                [
+                    'node' => $o[13],
+                    'attribute' => $o[14],
+                    'arguments' => $o[15],
+                ],
+            ],
+            'attributes' => [
+                1 => [
+                    'operator' => '>',
+                ],
+                [
+                    'operator' => '-',
+                ],
+                [
+                    'operator' => '+',
+                ],
+                [
+                    'type' => 2,
+                ],
+                [
+                    'type' => 2,
+                ],
+                [
+                    'name' => 'this',
+                ],
+                [
+                    'value' => 'getDebitAccount',
+                ],
+                9 => [
+                    'value' => 'getBalance',
+                ],
+                11 => [
+                    'type' => 2,
+                ],
+                [
+                    'type' => 2,
+                ],
+                [
+                    'name' => 'this',
+                ],
+                [
+                    'value' => 'getDebitAccount',
+                ],
+                16 => [
+                    'value' => 'getMinimumBalance',
+                ],
+                18 => [
+                    'name' => 'value',
+                ],
+                [
+                    'value' => 0,
+                ],
+            ],
+        ],
+        'Symfony\\Component\\ExpressionLanguage\\Node\\ConstantNode' => [
+            'isIdentifier' => [
+                7 => true,
+                9 => true,
+                14 => true,
+                16 => true,
+                19 => false,
+            ],
+        ],
+        'Symfony\\Component\\ExpressionLanguage\\Node\\ArrayNode' => [
+            'index' => [
+                8 => -1,
+                10 => -1,
+                15 => -1,
+                17 => -1,
+            ],
+        ],
+    ],
+    $o[0],
+    []
+); }];

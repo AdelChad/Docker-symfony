@@ -66,10 +66,10 @@ class Owner extends \App\Entity\Owner implements \Doctrine\ORM\Proxy\Proxy
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return ['__isInitialized__', '' . "\0" . 'App\\Entity\\Owner' . "\0" . 'id', '' . "\0" . 'App\\Entity\\Owner' . "\0" . 'firstName', '' . "\0" . 'App\\Entity\\Owner' . "\0" . 'lastName', '' . "\0" . 'App\\Entity\\Owner' . "\0" . 'birthday', '' . "\0" . 'App\\Entity\\Owner' . "\0" . 'email', '' . "\0" . 'App\\Entity\\Owner' . "\0" . 'tel', '' . "\0" . 'App\\Entity\\Owner' . "\0" . 'accounts', '' . "\0" . 'App\\Entity\\Owner' . "\0" . 'debitAccount'];
+            return ['__isInitialized__', '' . "\0" . 'App\\Entity\\Owner' . "\0" . 'id', '' . "\0" . 'App\\Entity\\Owner' . "\0" . 'firstName', '' . "\0" . 'App\\Entity\\Owner' . "\0" . 'lastName', '' . "\0" . 'App\\Entity\\Owner' . "\0" . 'birthday', '' . "\0" . 'App\\Entity\\Owner' . "\0" . 'email', '' . "\0" . 'App\\Entity\\Owner' . "\0" . 'tel', '' . "\0" . 'App\\Entity\\Owner' . "\0" . 'accounts', '' . "\0" . 'App\\Entity\\Owner' . "\0" . 'debitAccount', '' . "\0" . 'App\\Entity\\Owner' . "\0" . 'beneficiaries'];
         }
 
-        return ['__isInitialized__', '' . "\0" . 'App\\Entity\\Owner' . "\0" . 'id', '' . "\0" . 'App\\Entity\\Owner' . "\0" . 'firstName', '' . "\0" . 'App\\Entity\\Owner' . "\0" . 'lastName', '' . "\0" . 'App\\Entity\\Owner' . "\0" . 'birthday', '' . "\0" . 'App\\Entity\\Owner' . "\0" . 'email', '' . "\0" . 'App\\Entity\\Owner' . "\0" . 'tel', '' . "\0" . 'App\\Entity\\Owner' . "\0" . 'accounts', '' . "\0" . 'App\\Entity\\Owner' . "\0" . 'debitAccount'];
+        return ['__isInitialized__', '' . "\0" . 'App\\Entity\\Owner' . "\0" . 'id', '' . "\0" . 'App\\Entity\\Owner' . "\0" . 'firstName', '' . "\0" . 'App\\Entity\\Owner' . "\0" . 'lastName', '' . "\0" . 'App\\Entity\\Owner' . "\0" . 'birthday', '' . "\0" . 'App\\Entity\\Owner' . "\0" . 'email', '' . "\0" . 'App\\Entity\\Owner' . "\0" . 'tel', '' . "\0" . 'App\\Entity\\Owner' . "\0" . 'accounts', '' . "\0" . 'App\\Entity\\Owner' . "\0" . 'debitAccount', '' . "\0" . 'App\\Entity\\Owner' . "\0" . 'beneficiaries'];
     }
 
     /**
@@ -343,6 +343,39 @@ class Owner extends \App\Entity\Owner implements \Doctrine\ORM\Proxy\Proxy
         $this->__initializer__ && $this->__initializer__->__invoke($this, 'getDebitAccount', []);
 
         return parent::getDebitAccount();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getBeneficiaries(): \Doctrine\Common\Collections\Collection
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getBeneficiaries', []);
+
+        return parent::getBeneficiaries();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function addBeneficiary(\App\Entity\Account $beneficiary): \App\Entity\Owner
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'addBeneficiary', [$beneficiary]);
+
+        return parent::addBeneficiary($beneficiary);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function removeBeneficiary(\App\Entity\Account $beneficiary): \App\Entity\Owner
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'removeBeneficiary', [$beneficiary]);
+
+        return parent::removeBeneficiary($beneficiary);
     }
 
 }
