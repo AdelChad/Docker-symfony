@@ -56,7 +56,7 @@ class Account
     private $minimumBalance;
 
     /**
-     * @ORM\ManyToMany(targetEntity=Owner::class, inversedBy="beneficiaries")
+     * @ORM\ManyToMany(targetEntity=Owner::class, mappedBy="beneficiaries")
      * @ORM\JoinTable(name="owner_account")
      */
     private $senders;

@@ -41,6 +41,7 @@ class ComposerStaticInit4ac18f4f8719421a3d99463a18ac9667
         ),
         'S' => 
         array (
+            'Symfony\\WebpackEncoreBundle\\' => 28,
             'Symfony\\Runtime\\Symfony\\Component\\' => 34,
             'Symfony\\Polyfill\\Php81\\' => 23,
             'Symfony\\Polyfill\\Php80\\' => 23,
@@ -110,6 +111,7 @@ class ComposerStaticInit4ac18f4f8719421a3d99463a18ac9667
             'Symfony\\Bridge\\PhpUnit\\' => 23,
             'Symfony\\Bridge\\Monolog\\' => 23,
             'Symfony\\Bridge\\Doctrine\\' => 24,
+            'SymfonyCasts\\Bundle\\VerifyEmail\\' => 32,
             'Sensio\\Bundle\\FrameworkExtraBundle\\' => 35,
         ),
         'P' => 
@@ -180,6 +182,10 @@ class ComposerStaticInit4ac18f4f8719421a3d99463a18ac9667
         'Twig\\' => 
         array (
             0 => __DIR__ . '/..' . '/twig/twig/src',
+        ),
+        'Symfony\\WebpackEncoreBundle\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/webpack-encore-bundle/src',
         ),
         'Symfony\\Runtime\\Symfony\\Component\\' => 
         array (
@@ -457,6 +463,10 @@ class ComposerStaticInit4ac18f4f8719421a3d99463a18ac9667
         array (
             0 => __DIR__ . '/..' . '/symfony/doctrine-bridge',
         ),
+        'SymfonyCasts\\Bundle\\VerifyEmail\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfonycasts/verify-email-bundle/src',
+        ),
         'Sensio\\Bundle\\FrameworkExtraBundle\\' => 
         array (
             0 => __DIR__ . '/..' . '/sensio/framework-extra-bundle/src',
@@ -586,8 +596,23 @@ class ComposerStaticInit4ac18f4f8719421a3d99463a18ac9667
     );
 
     public static $classMap = array (
+        'App\\Controller\\AccountController' => __DIR__ . '/../..' . '/src/Controller/AccountController.php',
+        'App\\Controller\\IndexController' => __DIR__ . '/../..' . '/src/Controller/IndexController.php',
         'App\\Controller\\LuckyController' => __DIR__ . '/../..' . '/src/Controller/LuckyController.php',
+        'App\\Controller\\OwnerController' => __DIR__ . '/../..' . '/src/Controller/OwnerController.php',
+        'App\\Controller\\TransactionController' => __DIR__ . '/../..' . '/src/Controller/TransactionController.php',
+        'App\\Entity\\Account' => __DIR__ . '/../..' . '/src/Entity/Account.php',
+        'App\\Entity\\Owner' => __DIR__ . '/../..' . '/src/Entity/Owner.php',
+        'App\\Entity\\Transaction' => __DIR__ . '/../..' . '/src/Entity/Transaction.php',
+        'App\\Entity\\User' => __DIR__ . '/../..' . '/src/Entity/User.php',
+        'App\\Form\\AccountType' => __DIR__ . '/../..' . '/src/Form/AccountType.php',
+        'App\\Form\\OwnerType' => __DIR__ . '/../..' . '/src/Form/OwnerType.php',
+        'App\\Form\\TransactionType' => __DIR__ . '/../..' . '/src/Form/TransactionType.php',
         'App\\Kernel' => __DIR__ . '/../..' . '/src/Kernel.php',
+        'App\\Repository\\AccountRepository' => __DIR__ . '/../..' . '/src/Repository/AccountRepository.php',
+        'App\\Repository\\OwnerRepository' => __DIR__ . '/../..' . '/src/Repository/OwnerRepository.php',
+        'App\\Repository\\TransactionRepository' => __DIR__ . '/../..' . '/src/Repository/TransactionRepository.php',
+        'App\\Repository\\UserRepository' => __DIR__ . '/../..' . '/src/Repository/UserRepository.php',
         'Attribute' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/Attribute.php',
         'Collator' => __DIR__ . '/..' . '/symfony/polyfill-intl-icu/Resources/stubs/Collator.php',
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
@@ -3111,6 +3136,18 @@ class ComposerStaticInit4ac18f4f8719421a3d99463a18ac9667
         'Sensio\\Bundle\\FrameworkExtraBundle\\SensioFrameworkExtraBundle' => __DIR__ . '/..' . '/sensio/framework-extra-bundle/src/SensioFrameworkExtraBundle.php',
         'Sensio\\Bundle\\FrameworkExtraBundle\\Templating\\TemplateGuesser' => __DIR__ . '/..' . '/sensio/framework-extra-bundle/src/Templating/TemplateGuesser.php',
         'Stringable' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/Stringable.php',
+        'SymfonyCasts\\Bundle\\VerifyEmail\\DependencyInjection\\Configuration' => __DIR__ . '/..' . '/symfonycasts/verify-email-bundle/src/DependencyInjection/Configuration.php',
+        'SymfonyCasts\\Bundle\\VerifyEmail\\DependencyInjection\\SymfonyCastsVerifyEmailExtension' => __DIR__ . '/..' . '/symfonycasts/verify-email-bundle/src/DependencyInjection/SymfonyCastsVerifyEmailExtension.php',
+        'SymfonyCasts\\Bundle\\VerifyEmail\\Exception\\ExpiredSignatureException' => __DIR__ . '/..' . '/symfonycasts/verify-email-bundle/src/Exception/ExpiredSignatureException.php',
+        'SymfonyCasts\\Bundle\\VerifyEmail\\Exception\\InvalidSignatureException' => __DIR__ . '/..' . '/symfonycasts/verify-email-bundle/src/Exception/InvalidSignatureException.php',
+        'SymfonyCasts\\Bundle\\VerifyEmail\\Exception\\VerifyEmailExceptionInterface' => __DIR__ . '/..' . '/symfonycasts/verify-email-bundle/src/Exception/VerifyEmailExceptionInterface.php',
+        'SymfonyCasts\\Bundle\\VerifyEmail\\Exception\\WrongEmailVerifyException' => __DIR__ . '/..' . '/symfonycasts/verify-email-bundle/src/Exception/WrongEmailVerifyException.php',
+        'SymfonyCasts\\Bundle\\VerifyEmail\\Generator\\VerifyEmailTokenGenerator' => __DIR__ . '/..' . '/symfonycasts/verify-email-bundle/src/Generator/VerifyEmailTokenGenerator.php',
+        'SymfonyCasts\\Bundle\\VerifyEmail\\Model\\VerifyEmailSignatureComponents' => __DIR__ . '/..' . '/symfonycasts/verify-email-bundle/src/Model/VerifyEmailSignatureComponents.php',
+        'SymfonyCasts\\Bundle\\VerifyEmail\\SymfonyCastsVerifyEmailBundle' => __DIR__ . '/..' . '/symfonycasts/verify-email-bundle/src/SymfonyCastsVerifyEmailBundle.php',
+        'SymfonyCasts\\Bundle\\VerifyEmail\\Util\\VerifyEmailQueryUtility' => __DIR__ . '/..' . '/symfonycasts/verify-email-bundle/src/Util/VerifyEmailQueryUtility.php',
+        'SymfonyCasts\\Bundle\\VerifyEmail\\VerifyEmailHelper' => __DIR__ . '/..' . '/symfonycasts/verify-email-bundle/src/VerifyEmailHelper.php',
+        'SymfonyCasts\\Bundle\\VerifyEmail\\VerifyEmailHelperInterface' => __DIR__ . '/..' . '/symfonycasts/verify-email-bundle/src/VerifyEmailHelperInterface.php',
         'Symfony\\Bridge\\Doctrine\\CacheWarmer\\ProxyCacheWarmer' => __DIR__ . '/..' . '/symfony/doctrine-bridge/CacheWarmer/ProxyCacheWarmer.php',
         'Symfony\\Bridge\\Doctrine\\ContainerAwareEventManager' => __DIR__ . '/..' . '/symfony/doctrine-bridge/ContainerAwareEventManager.php',
         'Symfony\\Bridge\\Doctrine\\DataCollector\\DoctrineDataCollector' => __DIR__ . '/..' . '/symfony/doctrine-bridge/DataCollector/DoctrineDataCollector.php',
@@ -5918,6 +5955,23 @@ class ComposerStaticInit4ac18f4f8719421a3d99463a18ac9667
         'Symfony\\Runtime\\Symfony\\Component\\HttpFoundation\\RequestRuntime' => __DIR__ . '/..' . '/symfony/runtime/Internal/HttpFoundation/RequestRuntime.php',
         'Symfony\\Runtime\\Symfony\\Component\\HttpFoundation\\ResponseRuntime' => __DIR__ . '/..' . '/symfony/runtime/Internal/HttpFoundation/ResponseRuntime.php',
         'Symfony\\Runtime\\Symfony\\Component\\HttpKernel\\HttpKernelInterfaceRuntime' => __DIR__ . '/..' . '/symfony/runtime/Internal/HttpKernel/HttpKernelInterfaceRuntime.php',
+        'Symfony\\WebpackEncoreBundle\\Asset\\EntrypointLookup' => __DIR__ . '/..' . '/symfony/webpack-encore-bundle/src/Asset/EntrypointLookup.php',
+        'Symfony\\WebpackEncoreBundle\\Asset\\EntrypointLookupCollection' => __DIR__ . '/..' . '/symfony/webpack-encore-bundle/src/Asset/EntrypointLookupCollection.php',
+        'Symfony\\WebpackEncoreBundle\\Asset\\EntrypointLookupCollectionInterface' => __DIR__ . '/..' . '/symfony/webpack-encore-bundle/src/Asset/EntrypointLookupCollectionInterface.php',
+        'Symfony\\WebpackEncoreBundle\\Asset\\EntrypointLookupInterface' => __DIR__ . '/..' . '/symfony/webpack-encore-bundle/src/Asset/EntrypointLookupInterface.php',
+        'Symfony\\WebpackEncoreBundle\\Asset\\IntegrityDataProviderInterface' => __DIR__ . '/..' . '/symfony/webpack-encore-bundle/src/Asset/IntegrityDataProviderInterface.php',
+        'Symfony\\WebpackEncoreBundle\\Asset\\TagRenderer' => __DIR__ . '/..' . '/symfony/webpack-encore-bundle/src/Asset/TagRenderer.php',
+        'Symfony\\WebpackEncoreBundle\\CacheWarmer\\EntrypointCacheWarmer' => __DIR__ . '/..' . '/symfony/webpack-encore-bundle/src/CacheWarmer/EntrypointCacheWarmer.php',
+        'Symfony\\WebpackEncoreBundle\\DependencyInjection\\Configuration' => __DIR__ . '/..' . '/symfony/webpack-encore-bundle/src/DependencyInjection/Configuration.php',
+        'Symfony\\WebpackEncoreBundle\\DependencyInjection\\WebpackEncoreExtension' => __DIR__ . '/..' . '/symfony/webpack-encore-bundle/src/DependencyInjection/WebpackEncoreExtension.php',
+        'Symfony\\WebpackEncoreBundle\\EventListener\\ExceptionListener' => __DIR__ . '/..' . '/symfony/webpack-encore-bundle/src/EventListener/ExceptionListener.php',
+        'Symfony\\WebpackEncoreBundle\\EventListener\\PreLoadAssetsEventListener' => __DIR__ . '/..' . '/symfony/webpack-encore-bundle/src/EventListener/PreLoadAssetsEventListener.php',
+        'Symfony\\WebpackEncoreBundle\\Event\\RenderAssetTagEvent' => __DIR__ . '/..' . '/symfony/webpack-encore-bundle/src/Event/RenderAssetTagEvent.php',
+        'Symfony\\WebpackEncoreBundle\\Exception\\EntrypointNotFoundException' => __DIR__ . '/..' . '/symfony/webpack-encore-bundle/src/Exception/EntrypointNotFoundException.php',
+        'Symfony\\WebpackEncoreBundle\\Exception\\UndefinedBuildException' => __DIR__ . '/..' . '/symfony/webpack-encore-bundle/src/Exception/UndefinedBuildException.php',
+        'Symfony\\WebpackEncoreBundle\\Twig\\EntryFilesTwigExtension' => __DIR__ . '/..' . '/symfony/webpack-encore-bundle/src/Twig/EntryFilesTwigExtension.php',
+        'Symfony\\WebpackEncoreBundle\\Twig\\StimulusTwigExtension' => __DIR__ . '/..' . '/symfony/webpack-encore-bundle/src/Twig/StimulusTwigExtension.php',
+        'Symfony\\WebpackEncoreBundle\\WebpackEncoreBundle' => __DIR__ . '/..' . '/symfony/webpack-encore-bundle/src/WebpackEncoreBundle.php',
         'TheSeer\\Tokenizer\\Exception' => __DIR__ . '/..' . '/theseer/tokenizer/src/Exception.php',
         'TheSeer\\Tokenizer\\NamespaceUri' => __DIR__ . '/..' . '/theseer/tokenizer/src/NamespaceUri.php',
         'TheSeer\\Tokenizer\\NamespaceUriException' => __DIR__ . '/..' . '/theseer/tokenizer/src/NamespaceUriException.php',

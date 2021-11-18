@@ -21,6 +21,7 @@ class AccountType extends AbstractType
                 'class' => Owner::class,
                 'choice_label' => 'email'
             ])
+            ->add('minimumBalance')
         ;
     }
 
